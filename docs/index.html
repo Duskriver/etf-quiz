@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#c30123">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="ETF刷题">
+  <title>ETF 刷题 · 2026上证杯</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 顶栏 -->
+  <header class="topbar">
+    <button class="icon-btn" id="menuBtn" aria-label="菜单">☰</button>
+    <div class="title" id="modeTitle">顺序练习</div>
+    <div class="rate" id="rate">--</div>
+  </header>
+
+  <!-- 答题区 -->
+  <main id="quiz" class="quiz">
+    <div id="qBox"></div>
+  </main>
+
+  <!-- 底栏 -->
+  <nav class="bottombar">
+    <button id="prevBtn">‹ 上一题</button>
+    <button id="favBtn" class="fav" aria-label="收藏">☆</button>
+    <button id="idxBtn" class="idx">0/0</button>
+    <button id="nextBtn">下一题 ›</button>
+  </nav>
+
+  <!-- 抽屉菜单 -->
+  <div class="mask" id="drawerMask"></div>
+  <aside class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="drawer-title">ETF 刷题</div>
+      <div class="drawer-sub" id="drawerStats"></div>
+    </div>
+    <div class="menu">
+      <button data-mode="seq">📖 顺序练习</button>
+      <button data-mode="rand">🔀 随机练习</button>
+      <button data-mode="wrong">❌ 错题本 <span class="badge" id="wrongCount">0</span></button>
+      <button data-mode="fav">⭐ 收藏 <span class="badge" id="favCount">0</span></button>
+      <button id="searchOpen">🔍 搜索题目</button>
+      <hr>
+      <button id="reshuffle" class="minor">重新打乱随机顺序</button>
+      <button id="clearWrong" class="minor">清空错题本</button>
+      <button id="resetAll" class="minor danger">重置全部进度</button>
+    </div>
+  </aside>
+
+  <!-- 答题卡 -->
+  <div class="sheet-mask" id="cardMask"></div>
+  <section class="sheet" id="cardSheet">
+    <div class="sheet-head">
+      <span>答题卡</span>
+      <span class="legend"><i class="g"></i>对 <i class="r"></i>错 <i class="n"></i>未做</span>
+      <button class="icon-btn" id="cardClose" aria-label="关闭">✕</button>
+    </div>
+    <div class="grid" id="cardGrid"></div>
+  </section>
+
+  <!-- 搜索 -->
+  <section class="search" id="searchPage">
+    <div class="search-bar">
+      <input id="searchInput" type="search" placeholder="搜索题干或选项关键字" autocomplete="off">
+      <button id="searchClose">取消</button>
+    </div>
+    <div class="search-info" id="searchInfo"></div>
+    <div class="search-list" id="searchList"></div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
